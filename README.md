@@ -30,6 +30,8 @@ This refers to a set of sales data that can be analyzed to gain insights into cu
 
 ### Documentation, Cleaning and Preparation of data for analysis
 
+#### Excel Part
+
 1. Pasting the content of the .txt file to Excel.
 
 ![paste to excel](https://user-images.githubusercontent.com/7455410/222626227-b278ee4b-b40c-448d-b6a2-ef4a31e277a7.jpg)
@@ -55,20 +57,81 @@ This refers to a set of sales data that can be analyzed to gain insights into cu
 &nbsp;
 
 4. After finding all the cells with "�" characters. I will correct them by looking up the internet for the correct word/phrase for each cell. By using Find and Replace function of Excel correcting these cells will make the job easier.
-
 &nbsp;
 
 These are the words/phrases that I fixed.
 
+```
 Berguvsv�gen 8 --> Berguvsv gen 8
+&nbsp;
+
 Mart�n --> Martin
+&nbsp;
+
 Rambla de Catalu�a, 23 --> Rambla de Catalunya, 23
+```
+&nbsp;
+&nbsp;
+
+5. Finally, I formatted the columns for the right data type. 
+
+&nbsp;
+&nbsp;
 
 
+#### SQL Part
+
+Create a database named 'sales'
+
+![sql](https://user-images.githubusercontent.com/7455410/222630319-b5a9c0e0-d057-4c07-a45e-cc688d973c6b.jpg)
+
+&nbsp;
 
 
+Inspecting Data
+```sql
+SELECT * FROM sales.sales_data
+```
 
+&nbsp;
 
+Checking unique values
+```sql
+SELECT DISTINCT status FROM sales.sales_data 
+```
+```sql
+SELECT DISTINCT year_id FROM sales.sales_data
+```
+```sql
+SELECT DISTINCT productline FROM sales.sales_data
+```
+```sql
+SELECT DISTINCT country FROM sales.sales_data
+```
+```sql
+SELECT DISTINCT dealsize FROM sales.sales_data
+```
+```sql
+SELECT DISTINCT territory FROM sales.sales_data
+```
+```sql
+SELECT DISTINCT month_id FROM sales.sales_data
+WHERE year_id = 2003
+```
+&nbsp;
+&nbsp;
+&nbsp;
+
+## ANALYSIS
+
+Start by grouping sales by productline
+
+```sql
+SELECT productline, SUM(sales) AS revenue
+FROM sales.sales_data
+GROUP BY productline
+ORDER BY 2 DESC
+```
 
 
 
