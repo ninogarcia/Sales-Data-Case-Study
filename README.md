@@ -169,7 +169,7 @@ ORDER BY 2 DESC
 &nbsp;
 &nbsp;
 
-Based on the query above we can conclude that November is best month for sales. Let's check what is the product they sell.
+Based on the query above we can conclude that November is best month for sales. Let's check what are the products they sell.
 
 ```sql
 SELECT  month_id, productline, SUM(sales) AS Revenue, COUNT(ordernumber)
@@ -178,6 +178,9 @@ WHERE year_id = 2004 AND month_id = 11 -- change year to see the rest
 GROUP BY month_id, productline
 ORDER BY 3 DESC
 ```
+&nbsp;
+&nbsp;
+&nbsp;
 
 Who is the best customer (Let's answer it using RFM - Recency-Frequency-Monetary)
 
