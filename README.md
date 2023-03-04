@@ -132,9 +132,96 @@ FROM sales.sales_data
 GROUP BY productline
 ORDER BY 2 DESC
 ```
+&nbsp;
+&nbsp;
+&nbsp;
 
+```sql
+SELECT year_id, SUM(sales) AS Revenue
+FROM sales.sales_data
+GROUP BY year_id
+ORDER BY 2 DESC
+```
+&nbsp;
+&nbsp;
+&nbsp;
 
+```sql
+SELECT  dealsize,  SUM(sales) AS Revenue
+FROM sales.sales_data
+GROUP BY dealsize
+ORDER BY 2 DESC
+```
+&nbsp;
+&nbsp;
+&nbsp;
 
+What was the best month for sales in a specific year? How much was earned that month? 
 
+```sql
+SELECT  month_id, SUM(sales) AS Revenue, COUNT(ordernumber) AS frequency
+FROM sales.sales_data
+where YEAR_ID = 2004 -- change year to see the rest
+GROUP BY month_id
+ORDER BY 2 DESC
+```
+&nbsp;
+&nbsp;
+&nbsp;
 
+Based on the query above we can conclude that November is best month for sales. Let's check what is the product they sell.
+
+```sql
+SELECT  month_id, productline, SUM(sales) AS Revenue, COUNT(ordernumber)
+FROM sales.sales_data
+WHERE year_id = 2004 AND month_id = 11 -- change year to see the rest
+GROUP BY month_id, productline
+ORDER BY 3 DESC
+```
+
+Who is the best customer (Let's answer it using RFM - Recency-Frequency-Monetary)
+
+```sql
+DROP TEMPORARY TABLE IF EXISTS rfm;
+CREATE TEMPORARY TABLE rfm AS
+WITH rfm AS (
+    SELECT 
+        CUSTOMERNAME, 
+        SUM(sales) AS MonetaryValue,
+        AVG(sales) AS AvgMonetaryValue,
+        COUNT(ORDERNUMBER) AS Frequency,
+        MAX(ORDERDATE) AS last_order_date,
+        (SELECT MAX(ORDERDATE) FROM sales.sales_data) max_order_date,
+        ABS(DATEDIFF(MAX(ORDERDATE), (SELECT MAX(ORDERDATE) FROM sales.sales_data))) AS Recency
+    FROM sales.sales_data
+    GROUP BY CUSTOMERNAME
+),
+rfm_calc AS (
+    SELECT r.*,
+        NTILE(4) OVER (ORDER BY Recency DESC) rfm_recency,
+        NTILE(4) OVER (ORDER BY Frequency) rfm_frequency,
+        NTILE(4) OVER (ORDER BY MonetaryValue) rfm_monetary
+    FROM rfm r
+)
+SELECT 
+    c.*, 
+    rfm_recency + rfm_frequency + rfm_monetary AS rfm_cell,
+    CONCAT(rfm_recency, rfm_frequency, rfm_monetary) AS rfm_cell_string
+FROM rfm_calc c;
+
+SELECT 
+    CUSTOMERNAME, 
+    rfm_recency, 
+    rfm_frequency, 
+    rfm_monetary,
+    CASE 
+        WHEN rfm_cell_string IN (111, 112, 121, 122, 123, 132, 211, 212, 114, 141) THEN 'dormant_customers'
+        WHEN rfm_cell_string IN (133, 134, 143, 244, 334, 343, 344, 144) THEN 'at_risk_customers'
+        WHEN rfm_cell_string IN (311, 411, 331) THEN 'new_customers'
+        WHEN rfm_cell_string IN (221, 222, 223, 232, 233, 234, 322) THEN 'potential_churners'
+        WHEN rfm_cell_string IN (323, 333, 321, 412, 421, 422, 423, 332, 432) THEN 'active_customers'
+        WHEN rfm_cell_string IN (433, 434, 443, 444) THEN 'loyal_customers'
+    END AS rfm_segment
+FROM rfm;
+```
 
