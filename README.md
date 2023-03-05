@@ -182,7 +182,7 @@ ORDER BY 3 DESC
 &nbsp;
 &nbsp;
 
-Who is the best customer (Let's answer it using RFM - Recency-Frequency-Monetary)
+Who is the best customer? (Let's answer it using RFM - Recency-Frequency-Monetary)
 
 ```sql
 DROP TEMPORARY TABLE IF EXISTS rfm;
@@ -227,4 +227,35 @@ SELECT
     END AS rfm_segment
 FROM rfm;
 ```
+&nbsp;
+&nbsp;
+&nbsp;
 
+Which items are the top 10 frequently purchased together as a bundle?
+
+```sql
+SELECT CONCAT(p1.PRODUCTCODE, ',', p2.PRODUCTCODE) AS PRODUCT_PAIR, 
+       COUNT(*) AS FREQUENCY
+FROM 
+(
+   SELECT ORDERNUMBER, PRODUCTCODE
+   FROM sales.sales_data
+) AS p1
+INNER JOIN 
+(
+   SELECT ORDERNUMBER, PRODUCTCODE
+   FROM sales.sales_data
+) AS p2 ON p1.ORDERNUMBER = p2.ORDERNUMBER AND p1.PRODUCTCODE < p2.PRODUCTCODE
+GROUP BY CONCAT(p1.PRODUCTCODE, ',', p2.PRODUCTCODE)
+ORDER BY COUNT(*) DESC
+LIMIT 10;
+```
+What city has the highest number of sales in a specific country?
+
+```sql
+SELECT city, SUM(sales) AS Revenue
+FROM sales.sales_data
+WHERE country = 'UK'
+GROUP BY city
+ORDER BY 2 DESC
+```
