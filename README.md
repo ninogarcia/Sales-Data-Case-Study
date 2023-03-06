@@ -322,7 +322,7 @@ Based on the dashboard, we can conclude that the company generates the most reve
 [Angelina Frimpong](https://www.youtube.com/@AngelinaFrimpong) for the Dataset. Thank you for providing a great dataset!  
 &nbsp;
 
-[Dataset](https://github.com/AllThingsDataWithAngelina/DataSource/blob/main/sales_data_sample.csv) Thank you for providing a great dataset!  
+[Dataset](https://github.com/AllThingsDataWithAngelina/DataSource/blob/main/sales_data_sample.csv) 
 
 
 ## Contact Information
