@@ -122,7 +122,7 @@ WHERE year_id = 2003
 &nbsp;
 &nbsp;
 
-## ANALYSIS
+## ANALYZE
 
 Start by grouping sales by productline
 
@@ -250,6 +250,10 @@ GROUP BY CONCAT(p1.PRODUCTCODE, ',', p2.PRODUCTCODE)
 ORDER BY COUNT(*) DESC
 LIMIT 10;
 ```
+&nbsp;
+&nbsp;
+&nbsp;
+
 What city has the highest number of sales in a specific country?
 
 ```sql
@@ -259,3 +263,9 @@ WHERE country = 'UK'
 GROUP BY city
 ORDER BY 2 DESC
 ```
+&nbsp;
+&nbsp;
+&nbsp;
+
+### VISUALIZATION
+
