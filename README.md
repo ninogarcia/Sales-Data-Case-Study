@@ -124,7 +124,7 @@ WHERE year_id = 2003
 
 ## ANALYZE
 
-Start by grouping sales by productline
+Grouping sales by productline
 
 ```sql
 SELECT productline, SUM(sales) AS revenue
@@ -136,6 +136,7 @@ ORDER BY 2 DESC
 &nbsp;
 &nbsp;
 
+Grouping sales by Year ID
 ```sql
 SELECT year_id, SUM(sales) AS Revenue
 FROM sales.sales_data
@@ -146,6 +147,7 @@ ORDER BY 2 DESC
 &nbsp;
 &nbsp;
 
+Grouping sales by dealsize
 ```sql
 SELECT  dealsize,  SUM(sales) AS Revenue
 FROM sales.sales_data
