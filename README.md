@@ -9,7 +9,7 @@ The analysis will follow the 6 phases of the Data Analysis process: Ask, Prepare
 
 Case Study Task: Analysis of Sales Performance by Product Line
 
-Description: A company sells various products across different product lines to customers in different countries. The company maintains a record of each sale in a spreadsheet with the columns listed above.
+Description: A company sells various products across different product lines to customers in different countries. The company maintains a record of each sale in a .txt file.
 
 Your task is to conduct an analysis of the company's sales performance by product line. Specifically, you should answer thsese questions:
 
