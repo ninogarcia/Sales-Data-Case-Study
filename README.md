@@ -127,7 +127,7 @@ WHERE year_id = 2003
 Grouping sales by productline
 
 ```sql
-SELECT productline, SUM(sales) AS revenue
+SELECT productline, SUM(sales) AS Revenue
 FROM sales.sales_data
 GROUP BY productline
 ORDER BY 2 DESC
@@ -136,11 +136,11 @@ ORDER BY 2 DESC
 &nbsp;
 &nbsp;
 
-Grouping sales by Year ID
+Grouping sales by Country
 ```sql
-SELECT year_id, SUM(sales) AS Revenue
+SELECT country, SUM(sales) AS Revenue
 FROM sales.sales_data
-GROUP BY year_id
+GROUP BY country
 ORDER BY 2 DESC
 ```
 &nbsp;
@@ -271,3 +271,4 @@ ORDER BY 2 DESC
 
 ### VISUALIZATION
 
+Here is a visualization using Tableau. [Click here](https://public.tableau.com/views/SalesAnalysis_16780951424850/Dashboard1)!
