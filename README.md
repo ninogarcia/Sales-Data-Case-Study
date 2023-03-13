@@ -60,10 +60,8 @@ These are the words/phrases that I fixed.
 
 ```
 Berguvsv�gen 8 --> Berguvsv gen 8
-&nbsp;
 
 Mart�n --> Martin
-&nbsp;
 
 Rambla de Catalu�a, 23 --> Rambla de Catalunya, 23
 ```
