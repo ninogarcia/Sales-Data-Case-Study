@@ -11,7 +11,7 @@ Case Study Task: Analysis of Sales Performance by Product Line
 
 Description: A company sells various products across different product lines to customers in different countries. The company maintains a record of each sale in a .txt file.
 
-Your task is to conduct an analysis of the company's sales performance by product line. Specifically, you should answer thsese questions:
+The task ask is to conduct an analysis of the company's sales performance by product line. Specifically, you should answer these questions:
 
 * How does the sales performance of each product line vary by country, dealsize, and monthly sales?
 * What are the top-selling products within each product line, and how do their sales performances compare to other products in the same product line?
