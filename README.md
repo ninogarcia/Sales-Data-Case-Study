@@ -19,11 +19,11 @@ The task ask is to conduct an analysis of the company's sales performance by pro
 
 ## PREPARE
 
-### Data Source
-
 ABOUT THE DATASET:
 
-This refers to a set of sales data that can be analyzed to gain insights into customers' previous purchasing habits. It is in the form of .txt file which needs to be converted into a .csv file before uploading the data in SQL.
+This is  a set of sales data that can be analyzed to gain insights into customers' previous purchasing habits. It is in the form of .txt file which needs to be converted into a .csv file before uploading the data in SQL.
+
+## PROCESS
 
 ### Documentation, Cleaning and Preparation of data for analysis
 
