@@ -3,7 +3,7 @@
 ## Introduction
 This exploratory analysis case study is towards Capstone project requirement for Google Data Analytics Professional Certificate. The case study involves a Dataset of Sales Data.
 
-The analysis will follow the 6 phases of the Data Analysis process: Ask, Prepare, Process, Analyze, and Act (APPAA).
+The analysis will follow the 6 phases of the Data Analysis process: Ask, Prepare, Analyze, and Act (APAA).
 
 ## ASK
 
