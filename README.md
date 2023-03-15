@@ -1,4 +1,4 @@
-# Case Study - Sales Data Using Excel, SQL and Tableau
+# Case Study - Sales Data Using Excel, MySQL and Tableau
 
 ## Introduction
 This exploratory analysis case study is towards Capstone project requirement for Google Data Analytics Professional Certificate. The case study involves a Dataset of Sales Data.
