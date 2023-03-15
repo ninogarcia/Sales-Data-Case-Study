@@ -69,7 +69,7 @@ Rambla de Catalu�a, 23 --> Rambla de Catalunya, 23
 &nbsp;
 
 
-#### SQL Part
+#### MySQL Part
 
 Create a database named 'sales'
 
